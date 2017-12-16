@@ -327,7 +327,7 @@ class Calculator:
         howNumber = 0
 
     def resetAll(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, result
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, result, clickNumber, start, numberOne, numberTwo
         firstOperation = 1
         operation = 0
         clickNumber = 10
@@ -340,7 +340,7 @@ class Calculator:
         whatDo = ''
         howNumber = 0
         result = 0
-        guiLabelResult.config(text=result)
+        guiLabelResult.config(text=numberOne)
         guiLabelValues.config(text=result)
 
 calc = Calculator()
