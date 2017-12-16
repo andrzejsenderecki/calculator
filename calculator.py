@@ -297,16 +297,6 @@ class Calculator:
             whatDo = '/'
 
     def squere(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
-        firstOperation = 1
-        firstOrSecNumber = 1
-        currentValue = ''
-        if operation == 0:
-            if howNumber == 1:
-                calc.calculator()
-            whatDo = 'square'
-
-    def squere(self):
         global numberOne, numberTwo, result, start
         if result == 0:
             result = numberOne * numberOne
