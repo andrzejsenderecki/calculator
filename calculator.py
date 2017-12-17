@@ -267,7 +267,7 @@ class Calculator:
             whatDo = '+'
 
     def minus(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, numberOne
         firstOperation = 1
         firstOrSecNumber = 1
         currentValue = ''
@@ -308,6 +308,88 @@ class Calculator:
             numberTwo = result
             print(result)
             guiLabelResult.config(text=result)
+
+    def negate(self):
+        global numberOne, numberTwo, result, start
+        if numberOne > 0:
+            numberOne = numberOne * -1
+            guiLabelValues.config(text=numberOne)
+            print(numberOne)
+        elif numberOne < 0:
+            numberOne = numberOne * -1
+            guiLabelValues.config(text=numberOne)
+            print(numberOne)
+        if numberTwo > 0:
+            numberTwo = numberTwo * -1
+            guiLabelValues.config(text=numberTwo)
+            print(numberTwo)
+        elif numberTwo < 0:
+            numberTwo = numberTwo * -1
+            guiLabelValues.config(text=numberTwo)
+            print(numberTwo)
+        if result > 0:
+            result = result * -1
+            guiLabelResult.config(text=result)
+            print(result)
+        elif result < 0:
+            result = result * -1
+            guiLabelResult.config(text=result)
+            print(result)
+
+    def percent(self):
+        global numberOne, numberTwo, result, whatDo, start
+        if start == 0:
+            if whatDo == '+':
+                percent = float(numberOne) / 100
+                print(percent)
+                result = numberOne + percent * numberTwo
+                print(result)
+                guiLabelResult.config(text=result)
+                start = 1
+                whatDo = ''
+            elif whatDo == '-':
+                print(whatDo)
+                percent = float(numberOne) / 100
+                print(percent)
+                result = numberOne - percent * numberTwo
+                print(result)
+                guiLabelResult.config(text=result)
+                start = 1
+                whatDo = ''
+            elif whatDo == '*':
+                print(whatDo)
+                percent = float(numberOne) / 100
+                print(percent)
+                result = percent * float(numberTwo)
+                print(result)
+                guiLabelResult.config(text=result)
+                start = 1
+                whatDo = ''
+
+        if start == 1:
+            if whatDo == '+':
+                percent = float(result) / 100
+                print(percent)
+                result = result + percent * numberTwo
+                print(result)
+                guiLabelResult.config(text=result)
+                whatDo = ''
+            elif whatDo == '-':
+                print(whatDo)
+                percent = float(result) / 100
+                print(percent)
+                result = result - percent * numberTwo
+                print(result)
+                guiLabelResult.config(text=result)
+                whatDo = ''
+            elif whatDo == '*':
+                print(whatDo)
+                percent = float(result) / 100
+                print(percent)
+                result = percent * float(numberTwo)
+                print(result)
+                guiLabelResult.config(text=result)
+                whatDo = ''
 
     def equal(self):
         global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
@@ -353,7 +435,7 @@ guiLabelValues.place(x=20, y=20)
 guiLabelResult = tkinter.Label(gui, text = '0')
 guiLabelResult.place(x=20, y=35)
 
-guiButtonNegate = tkinter.Button(gui, text = "NEG", height = 3, width = 7)
+guiButtonNegate = tkinter.Button(gui, text = "NEG", command = calc.negate, height = 3, width = 7)
 guiButtonNegate.place(x=20, y=331)
 
 guiButton0 = tkinter.Button(gui, text = "0", command = calc.number0, height = 3, width = 7)
@@ -401,7 +483,7 @@ guiButton9.place(x=150, y=148)
 guiButtonMultiply = tkinter.Button(gui, text = "x", height = 3, width = 7)
 guiButtonMultiply.place(x=215, y=148)
 
-guiButtonPercent = tkinter.Button(gui, text = "%", height = 3, width = 7)
+guiButtonPercent = tkinter.Button(gui, text = "%", command = calc.percent, height = 3, width = 7)
 guiButtonPercent.place(x=20, y=87)
 
 guiButtonSquere = tkinter.Button(gui, text = "Squere", command = calc.squere, height = 3, width = 7)
