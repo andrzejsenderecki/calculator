@@ -8,7 +8,7 @@ gui.title('Calculator')
 class Calculator:
 
     def varibles(self):
-        global start, numberOne, numberTwo, whatDo, result, firstOrSecNumber, howNumber, currentValue, clickNumber, operation, firstOperation
+        global start, numberOne, numberTwo, whatDo, result, firstOrSecNumber, howNumber, currentValue, clickNumber, operation, firstOperation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
         start = 0
         numberOne = 0
         numberTwo = 0
@@ -20,47 +20,79 @@ class Calculator:
         clickNumber = 10
         operation = 0
         firstOperation = 0
+        plus = 0
+        minus = 0
+        multiply = 0
+        division = 0
+        doubleClickPlus = 0
+        doubleClickMinus = 0
+        doubleClickMultiply = 0
+        doubleClickDivision = 0
 
     def calculator(self):
-        global start, numberOne, numberTwo, whatDo, result, operation
+        global start, numberOne, numberTwo, whatDo, result, operation, plus, minus, multiply, division, numberClickPlus, numberClickMinus, doubleClickMultiply, doubleClickDivision
         if start == 0:
             if whatDo == '+':
                 result = float(numberOne) + float(numberTwo)
-                print(result)
                 guiLabelResult.config(text = result)
                 start = 1
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
             elif whatDo == '-':
                 result = float(numberOne) - float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
                 start = 1
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
             elif whatDo == '*':
                 result = float(numberOne) * float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
                 start = 1
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
             elif whatDo == '/':
                 result = float(numberOne) / float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
                 start = 1
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
         elif start == 1:
             if whatDo == '+':
                 result = result + float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
             elif whatDo == '-':
                 result = result - float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
             elif whatDo == '*':
                 result = result * float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
             elif whatDo == '/':
                 result = result / float(numberTwo)
-                print(result)
                 guiLabelResult.config(text=result)
+                plus = 0
+                minus = 0
+                multiply = 0
+                division = 0
         operation = 1
 
     def numberChoose(self):
@@ -70,124 +102,102 @@ class Calculator:
                 if clickNumber == 1:
                     currentValue += '1'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 2:
                     currentValue += '2'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 3:
                     currentValue += '3'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 4:
                     currentValue += '4'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 5:
                     currentValue += '5'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 6:
                     currentValue += '6'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 7:
                     currentValue += '7'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 8:
                     currentValue += '8'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 9:
                     currentValue += '9'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 0:
                     currentValue += '0'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
                 elif clickNumber == 20:
                     currentValue += '.'
                     numberOne = float(currentValue)
-                    print(numberOne)
                     guiLabelValues.config(text = numberOne)
         elif firstOrSecNumber == 1:
             if clickNumber == 1:
                 currentValue += '1'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 2:
                 currentValue += '2'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 3:
                 currentValue += '3'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 4:
                 currentValue += '4'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 5:
                 currentValue += '5'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 6:
                 currentValue += '6'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 7:
                 currentValue += '7'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 8:
                 currentValue += '8'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 9:
                 currentValue += '9'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 0:
                 currentValue += '0'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
             elif clickNumber == 20:
                 currentValue += '.'
                 numberTwo = float(currentValue)
                 howNumber = 1
-                print(numberTwo)
                 guiLabelValues.config(text = numberTwo)
 
     def number1(self):
@@ -257,40 +267,119 @@ class Calculator:
         operation = 0
 
     def plus(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
+        doubleClickPlus += 1
+        plus = 1
         firstOperation = 1
         firstOrSecNumber = 1
         currentValue = ''
+        if minus == 1:
+            whatDo = '-'
+        elif multiply == 1:
+            whatDo = '*'
+        elif division == 1:
+            whatDo = '/'
+        if doubleClickPlus == 2:
+            whatDo = '+'
+            doubleClickPlus = 0
+            doubleClickMinus = 0
+            doubleClickMultiply = 0
+        if doubleClickMinus == 1:
+            doubleClickMinus = 0
+        if doubleClickMultiply == 1:
+            doubleClickMultiply = 0
+        if doubleClickDivision == 1:
+            doubleClickDivision = 0
         if operation == 0:
             if howNumber == 1:
                 calc.calculator()
             whatDo = '+'
 
     def minus(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, numberOne
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, numberOne, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
+        doubleClickMinus += 1
+        minus = 1
         firstOperation = 1
         firstOrSecNumber = 1
         currentValue = ''
+        if plus == 1:
+            whatDo = '+'
+        elif multiply == 1:
+            whatDo = '*'
+        elif division == 1:
+            whatDo = '/'
+        if doubleClickMinus == 2:
+            whatDo = '-'
+            doubleClickPlus = 0
+            doubleClickMinus = 0
+            doubleClickMultiply = 0
+            doubleClickDivision = 0
+        if doubleClickPlus == 1:
+            doubleClickPlus = 0
+        if doubleClickMultiply == 1:
+            doubleClickMultiply = 0
+        if doubleClickDivision == 1:
+            doubleClickDivision = 0
         if operation == 0:
             if howNumber == 1:
                 calc.calculator()
             whatDo = '-'
 
     def multiply(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
+        doubleClickMultiply += 1
+        multiply = 1
         firstOperation = 1
         firstOrSecNumber = 1
         currentValue = ''
+        if plus == 1:
+            whatDo = '+'
+        elif minus == 1:
+            whatDo = '-'
+        elif division == 1:
+            whatDo = '/'
+        if doubleClickMultiply == 2:
+            whatDo = '*'
+            doubleClickPlus = 0
+            doubleClickMinus = 0
+            doubleClickMultiply = 0
+            doubleClickDivision = 0
+        if doubleClickPlus == 1:
+            doubleClickPlus = 0
+        if doubleClickMinus == 1:
+            doubleClickMinus = 0
+        if doubleClickDivision == 1:
+            doubleClickDivision = 0
         if operation == 0:
             if howNumber == 1:
                 calc.calculator()
             whatDo = '*'
 
     def division(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
+        doubleClickDivision += 1
+        division = 1
         firstOperation = 1
         firstOrSecNumber = 1
         currentValue = ''
+        if plus == 1:
+            whatDo = '+'
+        elif minus == 1:
+            whatDo = '-'
+        elif multiply == 1:
+            whatDo = '*'
+        if doubleClickDivision == 2:
+            whatDo = '/'
+            doubleClickPlus = 0
+            doubleClickMinus = 0
+            doubleClickMultiply = 0
+            doubleClickDivision = 0
+        if doubleClickPlus == 1:
+            doubleClickPlus = 0
+        if doubleClickMinus == 1:
+            doubleClickMinus = 0
+        if doubleClickMultiply == 1:
+            doubleClickMultiply = 0
         if operation == 0:
             if howNumber == 1:
                 calc.calculator()
@@ -300,13 +389,11 @@ class Calculator:
         global numberOne, numberTwo, result, start
         if result == 0:
             result = numberOne * numberOne
-            print(result)
             guiLabelResult.config(text=result)
             start = 1
         elif result != 0:
             result = result * result
             numberTwo = result
-            print(result)
             guiLabelResult.config(text=result)
 
     def negate(self):
@@ -314,102 +401,96 @@ class Calculator:
         if numberOne > 0:
             numberOne = numberOne * -1
             guiLabelValues.config(text=numberOne)
-            print(numberOne)
         elif numberOne < 0:
             numberOne = numberOne * -1
             guiLabelValues.config(text=numberOne)
-            print(numberOne)
         if numberTwo > 0:
             numberTwo = numberTwo * -1
             guiLabelValues.config(text=numberTwo)
-            print(numberTwo)
         elif numberTwo < 0:
             numberTwo = numberTwo * -1
             guiLabelValues.config(text=numberTwo)
-            print(numberTwo)
         if result > 0:
             result = result * -1
             guiLabelResult.config(text=result)
-            print(result)
         elif result < 0:
             result = result * -1
             guiLabelResult.config(text=result)
-            print(result)
 
-    def percent(self):
-        global numberOne, numberTwo, result, whatDo, start
-        if start == 0:
-            if whatDo == '+':
-                percent = float(numberOne) / 100
-                print(percent)
-                result = numberOne + percent * numberTwo
-                print(result)
-                guiLabelResult.config(text=result)
-                start = 1
-                whatDo = ''
-            elif whatDo == '-':
-                print(whatDo)
-                percent = float(numberOne) / 100
-                print(percent)
-                result = numberOne - percent * numberTwo
-                print(result)
-                guiLabelResult.config(text=result)
-                start = 1
-                whatDo = ''
-            elif whatDo == '*':
-                print(whatDo)
-                percent = float(numberOne) / 100
-                print(percent)
-                result = percent * float(numberTwo)
-                print(result)
-                guiLabelResult.config(text=result)
-                start = 1
-                whatDo = ''
+    # def percent(self):
+    #     global numberOne, numberTwo, result, whatDo, start
+    #     if start == 0:
+    #         if whatDo == '+':
+    #             percent = float(numberOne) / 100
+    #             result = numberOne + percent * numberTwo
+    #             guiLabelResult.config(text=result)
+    #             start = 1
+    #             whatDo = ''
+    #         elif whatDo == '-':
+    #             percent = float(numberOne) / 100
+    #             result = numberOne - percent * numberTwo
+    #             guiLabelResult.config(text=result)
+    #             start = 1
+    #             whatDo = ''
+    #         elif whatDo == '*':
+    #             percent = float(numberOne) / 100
+    #             result = percent * float(numberTwo)
+    #             guiLabelResult.config(text=result)
+    #             start = 1
+    #             whatDo = ''
+    #     if start == 1:
+    #         if whatDo == '+':
+    #             percent = float(result) / 100
+    #             result = result + percent * numberTwo
+    #             guiLabelResult.config(text=result)
+    #             whatDo = ''
+    #         elif whatDo == '-':
+    #             percent = float(result) / 100
+    #             result = result - percent * numberTwo
+    #             guiLabelResult.config(text=result)
+    #             whatDo = ''
+    #         elif whatDo == '*':
+    #             percent = float(result) / 100
+    #             result = percent * float(numberTwo)
+    #             guiLabelResult.config(text=result)
+    #             whatDo = ''
 
-        if start == 1:
-            if whatDo == '+':
-                percent = float(result) / 100
-                print(percent)
-                result = result + percent * numberTwo
-                print(result)
-                guiLabelResult.config(text=result)
-                whatDo = ''
-            elif whatDo == '-':
-                print(whatDo)
-                percent = float(result) / 100
-                print(percent)
-                result = result - percent * numberTwo
-                print(result)
-                guiLabelResult.config(text=result)
-                whatDo = ''
-            elif whatDo == '*':
-                print(whatDo)
-                percent = float(result) / 100
-                print(percent)
-                result = percent * float(numberTwo)
-                print(result)
-                guiLabelResult.config(text=result)
-                whatDo = ''
-
-    def equal(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation
-        firstOperation = 1
-        if operation == 0:
-            if howNumber == 1:
-                calc.calculator()
-        operation = 0
-        clickNumber = 10
-        currentValue = ''
-        firstOperation = 0
-        firstOrSecNumber = 0
-        start = 0
-        numberOne = 0
-        numberTwo = 0
-        whatDo = ''
-        howNumber = 0
+    # def equal(self):
+    #     global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
+    #     firstOperation = 1
+    #     if operation == 0 and whatDo == '+':
+    #         if howNumber == 1:
+    #             calc.calculator()
+    #     elif operation == 0 and whatDo == '-':
+    #         if howNumber == 1:
+    #             calc.calculator()
+    #     elif operation == 0 and whatDo == '*':
+    #         if howNumber == 1:
+    #             calc.calculator()
+    #     elif operation == 0 and whatDo == '/':
+    #         if howNumber == 1:
+    #             calc.calculator()
+    #     operation = 0
+    #     clickNumber = 10
+    #     currentValue = ''
+    #     firstOperation = 0
+    #     firstOrSecNumber = 0
+    #     start = 0
+    #     numberOne = 0
+    #     numberTwo = 0
+    #     whatDo = ''
+    #     howNumber = 0
+    #     plus = 0
+    #     minus = 0
+    #     multiply = 0
+    #     division = 0
+    #     doubleClickPlus = 0
+    #     doubleClickMinus = 0
+    #     doubleClickMultiply = 0
+    #     doubleClickDivision = 0
 
     def resetAll(self):
-        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, result, clickNumber, start, numberOne, numberTwo
+        global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, result, clickNumber, start, numberOne, numberTwo, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
         firstOperation = 1
         operation = 0
         clickNumber = 10
@@ -422,6 +503,14 @@ class Calculator:
         whatDo = ''
         howNumber = 0
         result = 0
+        plus = 0
+        minus = 0
+        multiply = 0
+        division = 0
+        doubleClickPlus = 0
+        doubleClickMinus = 0
+        doubleClickMultiply = 0
+        doubleClickDivision = 0
         guiLabelResult.config(text=numberOne)
         guiLabelValues.config(text=result)
 
@@ -444,8 +533,8 @@ guiButton0.place(x=85, y=331)
 guiButtonComma = tkinter.Button(gui, text = ",", command = calc.dot, height = 3, width = 7)
 guiButtonComma.place(x=150, y=331)
 
-guiButtonEqual = tkinter.Button(gui, text = "=", command = calc.equal, height = 3, width = 7)
-guiButtonEqual.place(x=215, y=331)
+# guiButtonEqual = tkinter.Button(gui, text = "=", command = calc.equal, height = 3, width = 7)
+# guiButtonEqual.place(x=215, y=331)
 
 guiButton1 = tkinter.Button(gui, text = "1", command = calc.number1, height = 3, width = 7)
 guiButton1.place(x=20, y=270)
@@ -483,8 +572,8 @@ guiButton9.place(x=150, y=148)
 guiButtonMultiply = tkinter.Button(gui, text = "x", height = 3, width = 7)
 guiButtonMultiply.place(x=215, y=148)
 
-guiButtonPercent = tkinter.Button(gui, text = "%", command = calc.percent, height = 3, width = 7)
-guiButtonPercent.place(x=20, y=87)
+# guiButtonPercent = tkinter.Button(gui, text = "%", command = calc.percent, height = 3, width = 7)
+# guiButtonPercent.place(x=20, y=87)
 
 guiButtonSquere = tkinter.Button(gui, text = "Squere", command = calc.squere, height = 3, width = 7)
 guiButtonSquere.place(x=85, y=87)
