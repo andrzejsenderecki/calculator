@@ -2,11 +2,10 @@ import tkinter
 from tkinter import *
 
 gui = tkinter.Tk()
-gui.geometry('293x405')
+gui.geometry('295x405')
 gui.title('Calculator')
 
-class Calculator:
-
+class CreateVaribles:
     def varibles(self):
         global start, numberOne, numberTwo, whatDo, result, firstOrSecNumber, howNumber, currentValue, clickNumber, operation, firstOperation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
         start = 0
@@ -29,6 +28,7 @@ class Calculator:
         doubleClickMultiply = 0
         doubleClickDivision = 0
 
+class Calculator:
     def calculator(self):
         global start, numberOne, numberTwo, whatDo, result, operation, plus, minus, multiply, division, numberClickPlus, numberClickMinus, doubleClickMultiply, doubleClickDivision
         if start == 0:
@@ -95,6 +95,7 @@ class Calculator:
                 division = 0
         operation = 1
 
+class WhichNumber:
     def numberChoose(self):
         global numberOne, numberTwo, howNumber, firstOrSecNumber, currentValue, firstOperation, clickNumber
         if firstOrSecNumber == 0:
@@ -200,72 +201,74 @@ class Calculator:
                 howNumber = 1
                 guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
 
+class Numbers:
     def number1(self):
         global clickNumber, operation
         clickNumber = 1
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number2(self):
         global clickNumber, operation
         clickNumber = 2
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number3(self):
         global clickNumber, operation
         clickNumber = 3
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number4(self):
         global clickNumber, operation
         clickNumber = 4
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number5(self):
         global clickNumber, operation
         clickNumber = 5
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number6(self):
         global clickNumber, operation
         clickNumber = 6
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number7(self):
         global clickNumber, operation
         clickNumber = 7
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number8(self):
         global clickNumber, operation
         clickNumber = 8
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number9(self):
         global clickNumber, operation
         clickNumber = 9
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def number0(self):
         global clickNumber, operation
         clickNumber = 0
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
     def dot(self):
         global clickNumber, operation
         clickNumber = 20
-        calc.numberChoose()
+        counterNumber.numberChoose()
         operation = 0
 
+class Operations:
     def plus(self):
         global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
         doubleClickPlus += 1
@@ -398,19 +401,21 @@ class Calculator:
             guiLabelResult.config(text = 'Equals:    ' + str(result))
 
     def negate(self):
-        global numberOne, numberTwo, result, start
-        if numberOne > 0:
-            numberOne = numberOne * -1
-            guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
-        elif numberOne < 0:
-            numberOne = numberOne * -1
-            guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
-        if numberTwo > 0:
-            numberTwo = numberTwo * -1
-            guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
-        elif numberTwo < 0:
-            numberTwo = numberTwo * -1
-            guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
+        global numberOne, numberTwo, result, start, firstNumber
+        if firstOperation == 0:
+            if numberOne > 0:
+                numberOne = numberOne * -1
+                guiLabelValues.config(text = 'Current number:    ' + str(numberOne))
+            elif numberOne < 0:
+                numberOne = numberOne * -1
+                guiLabelValues.config(text = 'Current number:    ' + str(numberOne))
+        elif firstOperation == 1:
+            if numberTwo > 0:
+                numberTwo = numberTwo * -1
+                guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
+            elif numberTwo < 0:
+                numberTwo = numberTwo * -1
+                guiLabelValues.config(text = 'Current number:    ' + str(numberTwo))
         if result > 0:
             result = result * -1
             guiLabelResult.config(text = 'Equals:    ' + str(result))
@@ -419,7 +424,7 @@ class Calculator:
             guiLabelResult.config(text = 'Equals:    ' + str(result))
 
     def percent(self):
-        global numberOne, numberTwo, result, whatDo, start
+        global numberOne, numberTwo, result, whatDo, start, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
         if start == 0:
             if whatDo == '+':
                 percent = float(numberOne) / 100
@@ -455,6 +460,14 @@ class Calculator:
                 result = percent * float(numberTwo)
                 guiLabelResult.config(text = 'Equals:    ' + str(result))
                 whatDo = ''
+        plus = 0
+        minus = 0
+        multiply = 0
+        division = 0
+        doubleClickPlus = 0
+        doubleClickMinus = 0
+        doubleClickMultiply = 0
+        doubleClickDivision = 0
 
     def equal(self):
         global whatDo, howNumber, firstOperation, firstOrSecNumber, currentValue, operation, plus, minus, multiply, division, doubleClickPlus, doubleClickMinus, doubleClickMultiply, doubleClickDivision
@@ -544,13 +557,9 @@ class Calculator:
             if howNumber == 1:
                 calc.calculator()
         operation = 0
-        clickNumber = 10
         currentValue = ''
         firstOperation = 0
         firstOrSecNumber = 0
-        start = 0
-        numberOne = 0
-        numberTwo = 0
         whatDo = ''
         howNumber = 0
         plus = 0
@@ -588,8 +597,11 @@ class Calculator:
         guiLabelValues.config(text = 'Current number:    ' + str(result))
 
 calc = Calculator()
-calc.varibles()
-calc.numberChoose()
+varibles = CreateVaribles()
+counterNumber = WhichNumber()
+varibles.varibles()
+number = Numbers()
+operation = Operations()
 
 guiLabelValues = tkinter.Label(gui, text = 'Current number:    ' + '0')
 guiLabelValues.place(x=20, y=20)
@@ -597,67 +609,64 @@ guiLabelValues.place(x=20, y=20)
 guiLabelResult = tkinter.Label(gui, text = 'Equals:    ' + '0')
 guiLabelResult.place(x=20, y=35)
 
-guiButtonNegate = tkinter.Button(gui, text = "NEG", command = calc.negate, height = 3, width = 7)
+guiButtonNegate = tkinter.Button(gui, text = "+/-", command = operation.negate, height = 3, width = 4)
 guiButtonNegate.place(x=20, y=331)
 
-guiButton0 = tkinter.Button(gui, text = "0", command = calc.number0, height = 3, width = 7)
+guiButton0 = tkinter.Button(gui, text = "0", command = number.number0, height = 3, width = 4)
 guiButton0.place(x=85, y=331)
 
-guiButtonComma = tkinter.Button(gui, text = ",", command = calc.dot, height = 3, width = 7)
+guiButtonComma = tkinter.Button(gui, text = ",", command = number.dot, height = 3, width = 4)
 guiButtonComma.place(x=150, y=331)
 
-guiButtonEqual = tkinter.Button(gui, text = "=", command = calc.equal, height = 3, width = 7)
+guiButtonEqual = tkinter.Button(gui, text = "=", command = operation.equal, height = 3, width = 4)
 guiButtonEqual.place(x=215, y=331)
 
-guiButton1 = tkinter.Button(gui, text = "1", command = calc.number1, height = 3, width = 7)
+guiButton1 = tkinter.Button(gui, text = "1", command = number.number1, height = 3, width = 4)
 guiButton1.place(x=20, y=270)
 
-guiButton2 = tkinter.Button(gui, text = "2", command = calc.number2, height = 3, width = 7)
+guiButton2 = tkinter.Button(gui, text = "2", command = number.number2, height = 3, width = 4)
 guiButton2.place(x=85, y=270)
 
-guiButton3 = tkinter.Button(gui, text = "3", command = calc.number3, height = 3, width = 7)
+guiButton3 = tkinter.Button(gui, text = "3", command = number.number3, height = 3, width = 4)
 guiButton3.place(x=150, y=270)
 
-guiButtonPlus = tkinter.Button(gui, text = "+", command = calc.plus, height = 3, width = 7)
+guiButtonPlus = tkinter.Button(gui, text = "+", command = operation.plus, height = 3, width = 4)
 guiButtonPlus.place(x=215, y=270)
 
-guiButton4 = tkinter.Button(gui, text = "4", command = calc.number4, height = 3, width = 7)
+guiButton4 = tkinter.Button(gui, text = "4", command = number.number4, height = 3, width = 4)
 guiButton4.place(x=20, y=209)
 
-guiButton5 = tkinter.Button(gui, text = "5", command = calc.number5, height = 3, width = 7)
+guiButton5 = tkinter.Button(gui, text = "5", command = number.number5, height = 3, width = 4)
 guiButton5.place(x=85, y=209)
 
-guiButton6 = tkinter.Button(gui, text = "6", command = calc.number6, height = 3, width = 7)
+guiButton6 = tkinter.Button(gui, text = "6", command = number.number6, height = 3, width = 4)
 guiButton6.place(x=150, y=209)
 
-guiButtonMinus = tkinter.Button(gui, text = "-", command = calc.minus, height = 3, width = 7)
+guiButtonMinus = tkinter.Button(gui, text = "-", command = operation.minus, height = 3, width = 4)
 guiButtonMinus.place(x=215, y=209)
 
-guiButton7 = tkinter.Button(gui, text = "7", command = calc.number7, height = 3, width = 7)
+guiButton7 = tkinter.Button(gui, text = "7", command = number.number7, height = 3, width = 4)
 guiButton7.place(x=20, y=148)
 
-guiButton8 = tkinter.Button(gui, text = "8", command = calc.number8, height = 3, width = 7)
+guiButton8 = tkinter.Button(gui, text = "8", command = number.number8, height = 3, width = 4)
 guiButton8.place(x=85, y=148)
 
-guiButton9 = tkinter.Button(gui, text = "9", command = calc.number9, height = 3, width = 7)
+guiButton9 = tkinter.Button(gui, text = "9", command = number.number9, height = 3, width = 4)
 guiButton9.place(x=150, y=148)
 
-guiButtonMultiply = tkinter.Button(gui, text = "x", height = 3, width = 7)
-guiButtonMultiply.place(x=215, y=148)
-
-guiButtonPercent = tkinter.Button(gui, text = "%", command = calc.percent, height = 3, width = 7)
+guiButtonPercent = tkinter.Button(gui, text = "%", command = operation.percent, height = 3, width = 4)
 guiButtonPercent.place(x=20, y=87)
 
-guiButtonSquere = tkinter.Button(gui, text = "Squere", command = calc.squere, height = 3, width = 7)
+guiButtonSquere = tkinter.Button(gui, text = "Squere", command = operation.squere, height = 3, width = 4)
 guiButtonSquere.place(x=85, y=87)
 
-guiButtonC = tkinter.Button(gui, text = "C", command = calc.resetAll, height = 3, width = 7)
+guiButtonC = tkinter.Button(gui, text = "C", command = operation.resetAll, height = 3, width = 4)
 guiButtonC.place(x=150, y=87)
 
-guiButtonDivision = tkinter.Button(gui, text = "/", command = calc.division, height = 3, width = 7)
+guiButtonDivision = tkinter.Button(gui, text = "/", command = operation.division, height = 3, width = 4)
 guiButtonDivision.place(x=215, y=87)
 
-guiButtonMultiply = tkinter.Button(gui, text = "x", command = calc.multiply, height = 3, width = 7)
+guiButtonMultiply = tkinter.Button(gui, text = "x", command = operation.multiply, height = 3, width = 4)
 guiButtonMultiply.place(x=215, y=148)
 
 gui.mainloop()
